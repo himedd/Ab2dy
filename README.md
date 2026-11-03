@@ -388,8 +388,8 @@ Three windows, switched in the support arena (`utils/supportersApi.ts`):
 ## 📜 License — الترخيص
 
 ```
-© 2026 Ab2dy Stream Hub. All Rights Reserved.
-POWERED BY HSG
+© 2026 Ab2dy أبو جيزن. All Rights Reserved.
+POWERED BY AB2DY ERA
 ```
 
 <p align="center">
@@ -405,5 +405,5 @@ POWERED BY HSG
 </p>
 
 <p align="center">
-  <strong>POWERED BY HSG</strong>
+  <strong>POWERED BY AB2DY ERA</strong>
 </p>

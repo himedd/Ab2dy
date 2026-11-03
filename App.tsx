@@ -1278,22 +1278,6 @@ export default function App() {
                                 </div>
                                 <p className="text-[11px] font-black tracking-[0.3em] text-white/50 mt-6 uppercase">{t.poweredBy}</p>
                                 <p className="text-[11px] text-white/35 mt-1">{t.footer}</p>
-                                {/* HSG credit — bottom of the footer, styled pill */}
-                                <div className="mt-6 md:mt-7 flex flex-col items-center gap-2 relative">
-                                    <p className="text-[9.5px] font-black tracking-[0.2em] text-white/35">
-                                        {lang === 'en' ? <>Powered by <span className="text-white/70">HSG</span></> : <>بدعم من <span className="text-white/70">HSG</span></>}
-                                    </p>
-                                    <a href="https://mohhsg.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                        title="HSG — mohhsg.vercel.app"
-                                        className="group/hsg inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur px-2.5 py-1.5 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-[0_10px_26px_-14px_rgba(0,0,0,0.9)] shadow-[0_8px_22px_-12px_rgba(0,0,0,0.85)]">
-                                        <span className="w-5 h-5 rounded-full overflow-hidden grid place-items-center bg-[#0b0b0b] ring-1 ring-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover/hsg:rotate-12" aria-hidden="true">
-                                            <img src="/hsg-icon-touch.png" alt="HSG" className="w-3.5 h-3.5 object-cover" loading="eager" />
-                                        </span>
-                                        <span className="text-[10px] font-black text-white/75">{lang === 'en' ? 'Want a site of your own?' : 'تبي موقع خاص بك؟'}</span>
-                                        <span className="text-white/20 font-black text-[10px]">·</span>
-                                        <span className="text-[10px] font-black text-white/60 group-hover/hsg:text-white transition-colors">{lang === 'en' ? 'Request yours' : 'اطلب موقعك'}</span>
-                                    </a>
-                                </div>
                             </div>
                         </footer>
                     </div>

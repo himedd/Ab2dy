@@ -136,7 +136,9 @@
     }
   </script>
 
-  <link rel="preload" as="image" href="/bg-ab2dy.webp" fetchpriority="high" type="image/webp">
+  <!-- كل جهاز يحمّل صحنه فقط: الجوال لا يدفعه تحميل الخلفية العرضية والعكس -->
+  <link rel="preload" as="image" href="/bg-ab2dy.webp" fetchpriority="high" type="image/webp" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="/bg-ab2dy-phone.webp" fetchpriority="high" type="image/webp" media="(max-width: 768px)">
   <link rel="preload" as="image" href="/ab2dy-logo.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,10 +168,10 @@
     ::-webkit-scrollbar-thumb { background: linear-gradient(#7BEF3D, #123A0A); border-radius: 99px; border: 2px solid #030603; }
 
     /* ===== Ab2dy NEON ETERNITY — obsidian HUD plate =====
-       The plate is 1672x941 and every neon beam lives in its four corners, so it is
+       The desktop plate is 1672x941 and every neon beam lives in its four corners, so it is
        never cropped: it is sized to fit the viewport on BOTH axes and pinned to the
-       top edge. In portrait the same plate is mirrored at the bottom, which frames
-       the phone screen with the HUD instead of leaving half of it empty. */
+       top edge. On a wider-than-18/10 window it is letterboxed, so its side edges feather
+       out. Portrait tablets mirror it at the bottom; phones get their own portrait plate. */
     .plate {
       position: absolute; top: 0; left: 50%; transform: translateX(-50%);
       width: min(100%, 177.6vh); aspect-ratio: 1672 / 941;
@@ -186,6 +188,16 @@
     .plate_foot { display: none; }
     @media (orientation: portrait) {
       .plate_foot { display: block; top: auto; bottom: 0; transform: translateX(-50%) scaleY(-1); }
+    }
+    /* الهاتف له صحنه الخاص: لوحة عمودية مرسومة بنسبة شاشة الجوال، تغطي من أول
+       الشاشة إلى آخرها بلا نسخة معكوسة تحتها. cover يقص نحو 11% من الحواف
+       الجانبية فقط، والستادة السفلية تذيب آخرها في حبر الصفحة. */
+    @media (max-width: 768px) {
+      .plate {
+        left: 0; transform: none; width: 100%; height: 100%; aspect-ratio: auto;
+        background: url('/bg-ab2dy-phone.webp') center top / cover no-repeat;
+      }
+      .plate_foot { display: none; }
     }
     /* ultra-wide windows letterbox the plate — feather its side edges so it has no seam */
     @media (min-aspect-ratio: 18 / 10) {
