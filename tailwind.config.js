@@ -1,4 +1,4 @@
-/** MADARA storm-fortress theme — ported 1:1 from the former CDN inline config (zero visual change) */
+/** Ab2dy neon-eternity theme — ported 1:1 from the former CDN inline config (zero visual change) */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -20,13 +20,13 @@ export default {
         gaming: ['"Bangers"', 'cursive'],
       },
       colors: {
-        kick: { DEFAULT: '#9CC5FF', dark: '#2E5FA3', glow: 'rgba(156,197,255,0.35)' },
-        neon: { DEFAULT: '#9CC5FF', dim: '#2E5FA3' },
-        emeraldx: { DEFAULT: '#4D8DFF', deep: '#0B1B33', glow: 'rgba(77,141,255,0.35)' },
-        storm: { DEFAULT: '#4D8DFF', bright: '#9CC5FF', deep: '#0B1B33', glow: 'rgba(77,141,255,0.35)' },
-        accent: { blue: '#4D8DFF', deep: '#0B1B33', sky: '#7FB2FF', navy: '#12315E', ice: '#9CC5FF' },
-        ink: { 950: '#05060B', 900: '#070B14', 800: '#0B1322', 700: '#12203A' },
-        ice: { light: '#D6E9FF', DEFAULT: '#4D8DFF', dark: '#12315E' }
+        kick: { DEFAULT: '#A6FF5C', dark: '#1E6B0C', glow: 'rgba(166,255,92,0.35)' },
+        neon: { DEFAULT: '#A6FF5C', dim: '#1E6B0C' },
+        emeraldx: { DEFAULT: '#5BE817', deep: '#04110A', glow: 'rgba(91,232,23,0.35)' },
+        storm: { DEFAULT: '#5BE817', bright: '#A6FF5C', deep: '#04110A', glow: 'rgba(91,232,23,0.35)' },
+        accent: { blue: '#5BE817', deep: '#04110A', sky: '#7BEF3D', navy: '#123A0A', ice: '#A6FF5C' },
+        ink: { 950: '#030603', 900: '#050805', 800: '#070D06', 700: '#0B1A0A' },
+        ice: { light: '#E2FFCB', DEFAULT: '#5BE817', dark: '#123A0A' }
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards',
@@ -48,7 +48,6 @@ export default {
         'tick': 'tickGlow 2.6s ease-in-out infinite',
         'ring-orbit': 'spin 14s linear infinite',
         'ember-rise': 'emberRise 12s linear infinite',
-        'beam-drift': 'beamDrift 16s ease-in-out infinite alternate',
         'halo-spin': 'spin 30s linear infinite',
       },
       keyframes: {
@@ -60,14 +59,13 @@ export default {
         shinePeriodic: { '0%': { transform: 'translateX(-170%) skewX(-18deg)', opacity: '0' }, '8%': { opacity: '0.6' }, '24%': { transform: 'translateX(170%) skewX(-18deg)', opacity: '0' }, '100%': { transform: 'translateX(170%) skewX(-18deg)', opacity: '0' } },
         floatY: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
         floatSoft: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
-        pulseIce: { '0%,100%': { opacity: '1', filter: 'drop-shadow(0 0 4px rgba(77,141,255,0.7))' }, '50%': { opacity: '0.8', filter: 'drop-shadow(0 0 14px rgba(77,141,255,0.7))' } },
+        pulseIce: { '0%,100%': { opacity: '1', filter: 'drop-shadow(0 0 4px rgba(91,232,23,0.7))' }, '50%': { opacity: '0.8', filter: 'drop-shadow(0 0 14px rgba(91,232,23,0.7))' } },
         marqueeCitadel: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
         marqueeRev: { from: { transform: 'translateX(-50%)' }, to: { transform: 'translateX(0)' } },
         aurora: { '0%': { transform: 'translate(-4%, -1%) scale(1)', opacity: '0.6' }, '50%': { transform: 'translate(3%, 2%) scale(1.05)', opacity: '0.9' }, '100%': { transform: 'translate(-2%, 3%) scale(1.02)', opacity: '0.75' } },
         glitchFx: { '0%': { transform: 'translate(0)' }, '25%': { transform: 'translate(-1px,1px)' }, '50%': { transform: 'translate(1px,-1px)' }, '75%': { transform: 'translate(-1px,-1px)' }, '100%': { transform: 'translate(0)' } },
-        tickGlow: { '0%,100%': { boxShadow: '0 0 0 0 rgba(77,141,255,0.35)' }, '50%': { boxShadow: '0 0 0 8px rgba(77,141,255,0)' } },
+        tickGlow: { '0%,100%': { boxShadow: '0 0 0 0 rgba(91,232,23,0.35)' }, '50%': { boxShadow: '0 0 0 8px rgba(91,232,23,0)' } },
         emberRise: { '0%': { transform: 'translateY(0)', opacity: '0' }, '12%': { opacity: '0.8' }, '100%': { transform: 'translateY(-110vh)', opacity: '0' } },
-        beamDrift: { '0%': { transform: 'translateX(-2%) rotate(8deg)', opacity: '0.5' }, '100%': { transform: 'translateX(2%) rotate(8deg)', opacity: '0.9' } },
       }
     }
   },

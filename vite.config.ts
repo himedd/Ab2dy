@@ -108,7 +108,7 @@ export default defineConfig(({ mode }) => {
               // ---- /api/social : عدّادات التواصل الحية محلياً (مرآة api/social.ts) ----
               const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
               const platform = (url.searchParams.get('platform') || '').toLowerCase();
-              const HANDLES: Record<string, string> = { tiktok: 'vmadara9', instagram: 'vmadara9', twitter: 'vmadara9', snapchat: 'vmadara9', youtube: 'UCD7EpD4o6bw24c5o5vu4hGQ' };
+              const HANDLES: Record<string, string> = { tiktok: 's2c', instagram: 'xAb2dy', twitter: 'xAb2dy', snapchat: 'xAb2dy', youtube: 'UCD7EpD4o6bw24c5o5vu4hGQ' };
               const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
               const parseCompact = (input: any): number | null => {
                 if (typeof input === 'number' && Number.isFinite(input)) return Math.round(input);
@@ -292,7 +292,7 @@ export default defineConfig(({ mode }) => {
                 res.statusCode = 200;
                 const extra: Record<string, any> = {};
                 if (platform === 'youtube') {
-                  // verified UC id for @vmadara9 + latest upload via RSS (server-side, no CORS)
+                  // verified UC id for @xAb2dy + latest upload via RSS (server-side, no CORS)
                   const ytId: string | null = HANDLES.youtube.startsWith('UC') ? HANDLES.youtube : null;
                   if (ytId) {
                     extra.channelId = ytId;

@@ -1,4 +1,4 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://oflag.vercel.app/sitemap.xml
+Sitemap: https://ab2dy.vercel.app/sitemap.xml

@@ -1,10 +1,13 @@
 {
-  "name": "mdra9-hub",
-  "description": "Official Stream Hub for MADARA (MADARA) - Real-time statistics and Live streaming updates.",
-  "author": "MADARA",
+  "name": "ab2dy-hub",
+  "description": "Official Stream Hub for Ab2dy — real-time stats, live stream, community and supporter boards.",
+  "author": "Ab2dy",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

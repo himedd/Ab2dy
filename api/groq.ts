@@ -1,5 +1,5 @@
 ﻿// ============================================================
-//  MADARA AI — GROQ Backend (Vercel Serverless Function)
+//  Ab2dy AI — GROQ Backend (Vercel Serverless Function)
 //  POST /api/groq  { messages: [{role, content}] }
 //
 //  نظام التبديل التلقائي (Failover):

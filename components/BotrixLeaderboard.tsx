@@ -10,7 +10,7 @@ interface BotrixLeaderboardProps {
   lang: 'en' | 'ar';
 }
 
-const API_URL = '/api/kick?endpoint=' + encodeURIComponent('https://botrix.live//api/public/leaderboard?platform=kick&user=mdra9');
+const API_URL = '/api/kick?endpoint=' + encodeURIComponent('https://botrix.live//api/public/leaderboard?platform=kick&user=ab2dy');
 /* direct-from-browser first (CORS on kick.com API works, proxy may be CF-blocked), proxy as fallback */
 const kickChannelUrl = (name: string) => `https://kick.com/api/v2/channels/${encodeURIComponent(name)}`;
 
@@ -175,7 +175,7 @@ const BotrixLeaderboard: React.FC<BotrixLeaderboardProps> = ({ lang }) => {
   };
 
   const podium = rich.slice(0, 3);
-  const hueOf = (n: string) => [...n].reduce((a, ch) => a + ch.charCodeAt(0), 0) * 37 % 360;
+  const hueOf = (n: string) => 72 + [...n].reduce((a, ch) => a + ch.charCodeAt(0), 0) * 37 % 78;
 
   return (
     <div className="w-full animate-fade-in-up" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -289,7 +289,7 @@ const BotrixLeaderboard: React.FC<BotrixLeaderboardProps> = ({ lang }) => {
         <div className="relative px-5 md:px-7 pb-5 flex items-center justify-center gap-3 z-10">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
           <span className="inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-white/40 bg-white/[0.04] border border-white/10 rounded-full px-3.5 py-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#9CC5FF] animate-pulse shadow-[0_0_8px_#9CC5FF]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#A6FF5C] animate-pulse shadow-[0_0_8px_#A6FF5C]" />
             {lang === 'ar' ? 'نخبة الشات المباشر' : 'Live chat elite'}
             {totalPoints > 0 && <span className="text-[#8FC1FF]" dir="ltr">• {formatNum(totalPoints)}</span>}
           </span>

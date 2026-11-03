@@ -1,18 +1,21 @@
-﻿// creators.sa unified donation leaderboard — MDRA9, MONTHLY only.
-// Public endpoint, no token: /v1/kebab/unified/MDRA9/leaderboard?limit=5&duration=monthly
+﻿// creators.sa unified donation leaderboard — AB2DY.
+// Public endpoint, no token:
+//   /v1/kebab/unified/ab2dy/leaderboard?limit=5&duration=lifetime|monthly|weekly
 // Response: [{ uname: string, total: number, last_donation_at: string }]
 // Layers: 1) /api/kick proxy (dev+prod, no CORS) 2) direct fetch 3) cache.
 
 import { kickFetch } from './kickApi';
 
+export type BoardDuration = 'lifetime' | 'monthly' | 'weekly';
+
 export interface Supporter {
   name: string;
-  amount: number; // total SAR for the month
+  amount: number; // total SAR for the window
   rank: number;
 }
 
-const URL_MONTHLY = 'https://api.creators.sa/v1/kebab/unified/MDRA9/leaderboard?limit=5&duration=monthly';
-const CACHE_KEY = 'madara_supporters_monthly_v1';
+const API_BASE = 'https://api.creators.sa/v1/kebab/unified/ab2dy/leaderboard';
+const cacheKey = (d: BoardDuration) => `ab2dy_supporters_${d}_v1`;
 export const SUPPORTERS_TTL_MS = 5 * 60 * 1000;
 
 function normalize(input: any): Supporter[] {
@@ -27,9 +30,9 @@ function normalize(input: any): Supporter[] {
     .slice(0, 5);
 }
 
-function readCache(): Supporter[] | null {
+function readCache(duration: BoardDuration): Supporter[] | null {
   try {
-    const raw = localStorage.getItem(CACHE_KEY);
+    const raw = localStorage.getItem(cacheKey(duration));
     if (!raw) return null;
     const { at, list } = JSON.parse(raw);
     if (!Array.isArray(list)) return null;
@@ -40,20 +43,20 @@ function readCache(): Supporter[] | null {
   }
 }
 
-function writeCache(list: Supporter[]): void {
+function writeCache(duration: BoardDuration, list: Supporter[]): void {
   try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), list }));
+    localStorage.setItem(cacheKey(duration), JSON.stringify({ at: Date.now(), list }));
   } catch {}
 }
 
-/** Monthly supporters only (duration=monthly, top 5). */
-export async function getMonthlySupporters(): Promise<Supporter[]> {
+/** Top 5 donors for one window: lifetime, monthly or weekly. */
+export async function getSupporters(duration: BoardDuration): Promise<Supporter[]> {
+  const url = `${API_BASE}?limit=5&duration=${duration}`;
   // 1) server proxy
   try {
-    const d = await kickFetch(URL_MONTHLY);
-    const list = normalize(d);
+    const list = normalize(await kickFetch(url));
     if (list.length) {
-      writeCache(list);
+      writeCache(duration, list);
       return list;
     }
   } catch {}
@@ -61,19 +64,19 @@ export async function getMonthlySupporters(): Promise<Supporter[]> {
   try {
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), 9000);
-    const res = await fetch(URL_MONTHLY, { signal: controller.signal });
+    const res = await fetch(url, { signal: controller.signal });
     clearTimeout(t);
     if (res.ok) {
       const list = normalize(await res.json());
       if (list.length) {
-        writeCache(list);
+        writeCache(duration, list);
         return list;
       }
     }
   } catch {}
   // 3) stale cache (even expired — better than nothing)
   try {
-    const raw = localStorage.getItem(CACHE_KEY);
+    const raw = localStorage.getItem(cacheKey(duration));
     if (raw) {
       const { list } = JSON.parse(raw);
       if (Array.isArray(list) && list.length) return list;
@@ -81,3 +84,5 @@ export async function getMonthlySupporters(): Promise<Supporter[]> {
   } catch {}
   return [];
 }
+
+export const getMonthlySupporters = () => getSupporters('monthly');

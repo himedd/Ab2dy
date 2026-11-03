@@ -1,0 +1,8 @@
+# Legacy PHP admin panel. Vercel has no PHP runtime and treats every file under /api
+# as a serverless function, so these four files break the build if uploaded.
+# They stay in git for the shared host that still serves them.
+api/admin
+
+# Unreferenced by any page — uploaded weight with zero benefit.
+public/1005.MP3
+public/ai-icon.png

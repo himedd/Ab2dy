@@ -11,11 +11,11 @@ const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 
 const HANDLES = {
-  tiktok: 'vmadara9',
-  instagram: 'vmadara9',
-  twitter: 'vmadara9',
-  snapchat: 'vmadara9',
-  youtube: 'UCD7EpD4o6bw24c5o5vu4hGQ', // @leveloneclan (Level One clan) — verified UC channel id
+  tiktok: 's2c',
+  instagram: 'xAb2dy',
+  twitter: 'xAb2dy',
+  snapchat: 'xAb2dy',
+  youtube: 'UCD7EpD4o6bw24c5o5vu4hGQ', // fallback channel id
 } as const;
 
 type Platform = keyof typeof HANDLES;

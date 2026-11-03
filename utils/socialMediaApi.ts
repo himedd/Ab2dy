@@ -3,8 +3,8 @@
 //   2) Direct client fetch (CORS-open sources only)
 //   3) Static fallback (neutral until live numbers land)
 //
-// MADARA handles:
-//   TikTok @vmadara9 | X @vmadara9 | Snapchat @vmadara9 | YouTube @vmadara9
+// Ab2dy handles:
+//   TikTok @s2c | X @xAb2dy | Discord migo
 
 export interface SocialMediaStats {
   instagram?: number;
@@ -17,7 +17,7 @@ export interface SocialMediaStats {
 export const FALLBACK = {
   instagram: 0,
   tiktok: 27300, // fixed fallback: always 27.3K when live API fails
-  twitter: 26700, // verified live (@vmadara9, Oct 2026)
+  twitter: 26700, // verified live (@xAb2dy, Oct 2026)
   youtube: 0,
 };
 
@@ -27,7 +27,7 @@ export const VERIFIED_INSTAGRAM = 10500;
 /** Owner-verified TikTok count — shown when the live API reads stale/wrong data. */
 export const VERIFIED_TIKTOK = 27300;
 
-const CACHE_KEY = 'madara_social_cache_v1';
+const CACHE_KEY = 'ab2dy_social_cache_v1';
 export const SOCIAL_TTL_MS = 5 * 60 * 1000;
 
 async function fetchJson(url: string, timeoutMs = 9000): Promise<any> {
@@ -82,7 +82,7 @@ function num(v: unknown): number | null {
   return null;
 }
 
-export async function getInstagramFollowers(username = 'mdra9'): Promise<number> {
+export async function getInstagramFollowers(username = 'xAb2dy'): Promise<number> {
   const via = await viaServerApi('instagram');
   // Live only when sane — the endpoint sometimes reads a stale/empty profile
   if (via && via >= 1000) return via;
@@ -101,7 +101,7 @@ export async function getSnapchatFollowers(): Promise<number> {
   return (await viaServerApi('snapchat')) ?? 0;
 }
 
-export async function getTikTokFollowers(username = 'vmadara9'): Promise<number> {
+export async function getTikTokFollowers(username = 's2c'): Promise<number> {
   const via = await viaServerApi('tiktok');
   // Live only when sane — otherwise fall back to the owner-verified number
   if (via && via >= 1000) return via;
@@ -149,7 +149,7 @@ export async function getTikTokFollowers(username = 'vmadara9'): Promise<number>
   return FALLBACK.tiktok;
 }
 
-export async function getTwitterFollowers(username = 'vmadara9'): Promise<number> {
+export async function getTwitterFollowers(username = 'xAb2dy'): Promise<number> {
   const via = await viaServerApi('twitter');
   if (via) return via;
   // Layer 2 — FixTweet API (usually CORS-open)
@@ -162,7 +162,7 @@ export async function getTwitterFollowers(username = 'vmadara9'): Promise<number
 }
 
 export async function getYouTubeSubscribers(channelId = 'UCR3C2TWZ5EJ99zXP24oRfBQ'): Promise<number> {
-  // Layer 1 — Mixerno direct (MADARA's own channel; the server API now serves the Level One clan channel)
+  // Layer 1 — Mixerno direct for the configured channel id
   try {
     const d = await fetchJson(`https://mixerno.space/api/youtube-channel-counter/user/${channelId}`);
     const entry = Array.isArray(d?.counts) ? d.counts.find((c: any) => c?.value === 'subscribers') : null;
@@ -177,8 +177,8 @@ export async function getYouTubeSubscribers(channelId = 'UCR3C2TWZ5EJ99zXP24oRfB
 
 export async function getAllSocialMediaStats(): Promise<SocialMediaStats> {
   const [tiktok, twitter, youtube, snapchat] = await Promise.all([
-    getTikTokFollowers('vmadara9'),
-    getTwitterFollowers('vmadara9'),
+    getTikTokFollowers('s2c'),
+    getTwitterFollowers('xAb2dy'),
     getYouTubeSubscribers(),
     getSnapchatFollowers(),
   ]);

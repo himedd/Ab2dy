@@ -1,0 +1,19 @@
+{
+  "name": "Ab2dy أبو جيزن — مركز أبدي الرسمي",
+  "short_name": "Ab2dy",
+  "description": "بث Ab2dy أبو جيزن المباشر على كيك — كل المنصات والأرقام واللقطات في مكان واحد.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "orientation": "portrait",
+  "background_color": "#030603",
+  "theme_color": "#030603",
+  "display": "standalone",
+  "categories": ["entertainment", "live", "gaming"],
+  "icons": [
+    { "src": "/ab2dy-logo.webp", "sizes": "192x192", "type": "image/webp", "purpose": "any" },
+    { "src": "/ab2dy-logo.webp", "sizes": "512x512", "type": "image/webp", "purpose": "any maskable" }
+  ]
+}

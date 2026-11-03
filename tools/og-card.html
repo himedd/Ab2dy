@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+  OG / link-preview card for ab2dy.
+  Mirrors the live hero lockup: neon plate background, emblem, "Ab2dy" sweep word,
+  «أبو جيزن» kunya with flanking rules, then the platform chips.
+  Render:  chrome --headless --window-size=1200,630 --screenshot=public/og-ab2dy.png tools/og-card.html
+-->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Outfit:wght@600;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #030603; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; font-family: 'Tajawal', sans-serif; }
+
+  /* the plate, shown whole — same fit rule as the site */
+  .plate { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 1120px; height: 630px; background: url("../public/bg-ab2dy.webp") center / 100% 100% no-repeat; }
+  .plate::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(3,6,3,.52) 0%, rgba(3,6,3,.10) 30%, rgba(3,6,3,.34) 66%, rgba(3,6,3,.86) 100%); }
+  .halo { position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%); width: 720px; height: 340px;
+    background: radial-gradient(ellipse at center, rgba(91,232,23,.26), rgba(91,232,23,.06) 55%, transparent 74%); filter: blur(26px); }
+
+  .frame { position: absolute; inset: 20px; border: 1px solid rgba(91,232,23,.30); pointer-events: none; }
+  .frame::before { content: ""; position: absolute; top: -1px; left: 20%; right: 20%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(91,232,23,.95), transparent); }
+  .frame::after { content: ""; position: absolute; bottom: -1px; left: 32%; right: 32%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(91,232,23,.55), transparent); }
+  .corner { position: absolute; width: 30px; height: 30px; border: 2px solid #5BE817; }
+  .c-tl { top: 20px; left: 20px; border-inline: 0; border-bottom: 0; }
+  .c-tr { top: 20px; right: 20px; border-inline: 0; border-bottom: 0; }
+  .c-bl { bottom: 20px; left: 20px; border-inline: 0; border-top: 0; }
+  .c-br { bottom: 20px; right: 20px; border-inline: 0; border-top: 0; }
+
+  .content { position: absolute; inset: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+
+  .kicker { direction: ltr; display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 900; letter-spacing: .34em; color: #A6FF5C;
+    text-shadow: 0 0 18px rgba(91,232,23,.55); }
+  .kicker i { width: 7px; height: 7px; border-radius: 99px; background: #5BE817; box-shadow: 0 0 12px #5BE817; }
+
+  .mark { margin-top: 14px; width: 92px; height: 92px; border-radius: 24px; object-fit: cover;
+    border: 1px solid rgba(91,232,23,.55); box-shadow: 0 0 40px rgba(91,232,23,.45), inset 0 1px 0 rgba(255,255,255,.18); }
+
+  /* hero word — same sweep as .hero-ab2dy */
+  .word { margin-top: 8px; direction: ltr; font-family: 'Outfit', sans-serif; font-weight: 900;
+    font-size: 118px; line-height: 1; letter-spacing: .02em;
+    background: linear-gradient(110deg, #04110A 0%, #5BE817 16%, #E2FFCB 34%, #8FFF5C 48%, #E2FFCB 62%, #5BE817 82%, #04110A 100%);
+    background-size: 220% auto; background-position: 42% center;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 3px 0 rgba(0,0,0,.85)) drop-shadow(0 10px 26px rgba(91,232,23,.42)); }
+
+  /* kunya lockup — same as .hero-kunya */
+  .kunya-row { margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  .kunya { font-family: 'Cairo', 'Tajawal', sans-serif; font-weight: 900; font-size: 40px; line-height: 1.1; white-space: nowrap;
+    background: linear-gradient(100deg, #3FBF0E 0%, #A6FF5C 30%, #EFFFD9 50%, #A6FF5C 70%, #3FBF0E 100%);
+    background-size: 200% auto; background-position: 50% center;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 14px rgba(91,232,23,.5)); }
+  .krule { height: 1px; width: 118px; border-radius: 99px; }
+  .krule.l { background: linear-gradient(to right, transparent, rgba(91,232,23,.85)); }
+  .krule.r { background: linear-gradient(to left, transparent, rgba(91,232,23,.85)); }
+
+  .tag { margin-top: 14px; font-size: 25px; font-weight: 900; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.85); }
+  .sub { margin-top: 5px; font-size: 16px; font-weight: 700; color: rgba(226,255,203,.72); }
+
+  .chips { margin-top: 20px; direction: ltr; display: flex; gap: 10px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 13px;
+    background: rgba(4,10,4,.74); border: 1px solid rgba(91,232,23,.30);
+    font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: rgba(255,255,255,.9); letter-spacing: .05em; }
+  .chip svg { width: 17px; height: 17px; }
+  .chip b { font-weight: 900; }
+  .chip.kick svg { fill: #5BE817; } .chip.kick b { color: #A6FF5C; }
+  .chip.wa svg { fill: #25D366; } .chip.wa b { color: #6CF0A0; }
+  .chip.tt svg { fill: #FE2C55; } .chip.tt b { color: #FF7A96; }
+  .chip.xx svg { fill: #fff; } .chip.xx b { color: #fff; }
+  .chip.dc svg { fill: #8EA0FF; } .chip.dc b { color: #A9B6FF; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="plate"></div>
+    <div class="halo"></div>
+    <div class="frame"></div>
+    <div class="corner c-tl"></div><div class="corner c-tr"></div>
+    <div class="corner c-bl"></div><div class="corner c-br"></div>
+
+    <div class="content">
+      <span class="kicker"><i></i>AB2DY STREAM HUB<i></i></span>
+      <img class="mark" src="../public/ab2dy-logo.webp" alt="Ab2dy" />
+      <div class="word">Ab2dy</div>
+      <div class="kunya-row">
+        <span class="krule l"></span>
+        <span class="kunya" dir="rtl">أبو جيزن</span>
+        <span class="krule r"></span>
+      </div>
+      <div class="tag">بث مباشر على كيك ⚡ كل المنصات في مكان واحد</div>
+      <div class="sub">بثوث يومية • تحديات • سهرات • دكان الدعم الرسمي CREATORS</div>
+      <div class="chips">
+        <span class="chip kick"><svg viewBox="0 0 24 24"><path d="M3 3h4.5v6.9l6-6.9H19l-7.5 8.4L20 21h-5.4l-5.1-6.6V21H3V3z"/></svg>KICK <b>ab2dy</b></span>
+        <span class="chip wa"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-1.5.1-3.6-.9-5.4-3.2-1.3-1.7-1.7-3.2-1.6-4.2 0-.5.4-1.4 1-1.6.4-.1.8 0 1 .4l.7 1.5c.2.4.1.7-.1 1l-.4.5c-.1.2-.1.3 0 .5.4.8 1.6 2 2.4 2.3.2.1.4 0 .5-.1l.5-.6c.2-.3.5-.3.9-.2l1.5.7c.4.2.5.6.3 1z"/></svg>WHATSAPP <b>11K</b></span>
+        <span class="chip tt"><svg viewBox="0 0 24 24"><path d="M16.6 5.8a4.9 4.9 0 0 0 3.4 1.4v3a8 8 0 0 1-3.4-.8v5.9a5.9 5.9 0 1 1-5.9-5.9c.3 0 .6 0 .9.1v3.1a2.8 2.8 0 1 0 2 2.7V2h3z"/></svg>TIKTOK <b>@s2c</b></span>
+        <span class="chip xx"><svg viewBox="0 0 24 24"><path d="M17.9 3h3.3l-7.2 8.2L22.5 21h-6.7l-5.2-6.4L4.5 21H1.2l7.7-8.8L1.5 3h6.9l4.7 5.9L17.9 3zm-1.2 16h1.8L7.4 4.8H5.5L16.7 19z"/></svg><b>@xAb2dy</b></span>
+        <span class="chip dc"><svg viewBox="0 0 24 24"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.4.9a15 15 0 0 1 3.5 1.2 12 12 0 0 0-10.9 0A15 15 0 0 1 11.1 5l-.4-.9a16 16 0 0 0-4 1.4C4.3 9.4 3.7 13.3 4 17.1a16 16 0 0 0 4.8 2.5l.7-1.2a11 11 0 0 1-1.8-.9l.4-.6a11.6 11.6 0 0 0 9.9 0l.4.6a11 11 0 0 1-1.8.9l.7 1.2a16 16 0 0 0 4.8-2.5c.5-4.4-.6-8.3-2.8-11.7zM9.7 14.8c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.7 1.9-1.7 1.9zm4.6 0c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.7 1.9-1.7 1.9z"/></svg>DISCORD <b>migo</b></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

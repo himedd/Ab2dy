@@ -11,7 +11,7 @@ interface StatsSectionProps {
   onPlayClip?: (c: any) => void;
 }
 
-const FALLBACK_IMAGE = "/madara-logo.webp";
+const FALLBACK_IMAGE = "/ab2dy-logo.webp";
 
 const formatNumber = (num: number) => {
   return new Intl.NumberFormat('en-US', { notation: "compact", maximumFractionDigits: 1 }).format(num || 0);
@@ -53,14 +53,14 @@ const CrownIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <defs>
       <linearGradient id="crownGold" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#D6E9FF" />
-        <stop offset="55%" stopColor="#4D8DFF" />
-        <stop offset="100%" stopColor="#0B1B33" />
+        <stop offset="0%" stopColor="#E2FFCB" />
+        <stop offset="55%" stopColor="#5BE817" />
+        <stop offset="100%" stopColor="#04110A" />
       </linearGradient>
     </defs>
     <path fill="url(#crownGold)" d="M2.5 8.5 6.5 12l5.5-7 5.5 7 4-3.5L20 18H4L2.5 8.5z" />
     <rect x="4" y="18.6" width="16" height="2.2" rx="1.1" fill="url(#crownGold)" />
-    <circle cx="12" cy="12.6" r="1.4" fill="#EAF4FF" />
+    <circle cx="12" cy="12.6" r="1.4" fill="#E8FFDC" />
   </svg>
 );
 
@@ -68,9 +68,9 @@ const BoltIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <defs>
       <linearGradient id="boltRose" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#D6E9FF" />
-        <stop offset="55%" stopColor="#9CC5FF" />
-        <stop offset="100%" stopColor="#12315E" />
+        <stop offset="0%" stopColor="#E2FFCB" />
+        <stop offset="55%" stopColor="#A6FF5C" />
+        <stop offset="100%" stopColor="#123A0A" />
       </linearGradient>
     </defs>
     <path fill="url(#boltRose)" d="M13 2 4.5 13.5H10L9 22l8.5-11.5H12L13 2z" />
@@ -82,8 +82,8 @@ const MedalIcon = ({ className }: { className?: string }) => (
     <defs>
       <linearGradient id="medalCyan" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#D8E8FF" />
-        <stop offset="55%" stopColor="#7FB2FF" />
-        <stop offset="100%" stopColor="#6FA5FF" />
+        <stop offset="55%" stopColor="#7BEF3D" />
+        <stop offset="100%" stopColor="#8FFF5C" />
       </linearGradient>
     </defs>
     <path stroke="url(#medalCyan)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M8.5 9.5 6 2h4.5L12 6.8 13.5 2H18l-2.5 7.5" />
@@ -111,47 +111,47 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ title, subtitle, data
   // Modern glass config — vibrant but harmonious with storm identity
   const config = {
     yellow: {
-      border: 'border-[#4D8DFF]/25',
-      text: 'text-[#7FB2FF]',
-      bgIcon: 'bg-[#4D8DFF]/10',
-      gradient: 'from-[#D6E9FF] to-[#1E4E8C]',
-      subText: 'text-[#7FB2FF]/50',
+      border: 'border-[#5BE817]/25',
+      text: 'text-[#7BEF3D]',
+      bgIcon: 'bg-[#5BE817]/10',
+      gradient: 'from-[#E2FFCB] to-[#1A5C0A]',
+      subText: 'text-[#7BEF3D]/50',
       glowColor: '77,141,255',
-      barBright: '#D6E9FF',
-      barDeep: '#1E4E8C',
-      medalBg: 'linear-gradient(160deg,#D6E9FF,#4D8DFF 55%,#0B1B33)',
-      orb: 'bg-[#4D8DFF]/15'
+      barBright: '#E2FFCB',
+      barDeep: '#1A5C0A',
+      medalBg: 'linear-gradient(160deg,#E2FFCB,#5BE817 55%,#04110A)',
+      orb: 'bg-[#5BE817]/15'
     },
     rose: {
-      border: 'border-[#4D8DFF]/25',
-      text: 'text-[#7FB2FF]',
-      bgIcon: 'bg-[#4D8DFF]/10',
-      gradient: 'from-[#D6E9FF] to-[#1E4E8C]',
-      subText: 'text-[#7FB2FF]/50',
+      border: 'border-[#5BE817]/25',
+      text: 'text-[#7BEF3D]',
+      bgIcon: 'bg-[#5BE817]/10',
+      gradient: 'from-[#E2FFCB] to-[#1A5C0A]',
+      subText: 'text-[#7BEF3D]/50',
       glowColor: '77,141,255',
-      barBright: '#D6E9FF',
-      barDeep: '#1E4E8C',
-      medalBg: 'linear-gradient(160deg,#D6E9FF,#4D8DFF 55%,#0B1B33)',
-      orb: 'bg-[#4D8DFF]/15'
+      barBright: '#E2FFCB',
+      barDeep: '#1A5C0A',
+      medalBg: 'linear-gradient(160deg,#E2FFCB,#5BE817 55%,#04110A)',
+      orb: 'bg-[#5BE817]/15'
     },
     cyan: {
-      border: 'border-[#6FA5FF]/25',
-      text: 'text-[#9CC5FF]',
-      bgIcon: 'bg-[#6FA5FF]/10',
-      gradient: 'from-[#D6E9FF] to-[#9CC5FF]',
-      subText: 'text-[#9CC5FF]/50',
+      border: 'border-[#8FFF5C]/25',
+      text: 'text-[#A6FF5C]',
+      bgIcon: 'bg-[#8FFF5C]/10',
+      gradient: 'from-[#E2FFCB] to-[#A6FF5C]',
+      subText: 'text-[#A6FF5C]/50',
       glowColor: '156,197,255',
-      barBright: '#D6E9FF',
-      barDeep: '#9CC5FF',
-      medalBg: 'linear-gradient(160deg,#D6E9FF,#9CC5FF 60%,#0B1B33)',
-      orb: 'bg-[#6FA5FF]/15'
+      barBright: '#E2FFCB',
+      barDeep: '#A6FF5C',
+      medalBg: 'linear-gradient(160deg,#E2FFCB,#A6FF5C 60%,#04110A)',
+      orb: 'bg-[#8FFF5C]/15'
     }
   }[accentColor];
 
   // Helper for Rank Badges — modern pills
   const renderRankBadge = (rank: number) => {
     if (rank === 1) return (
-      <div className="w-9 h-9 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#D6E9FF] to-[#1E4E8C] shadow-[0_0_20px_rgba(77,141,255,0.5)] border border-white/40 text-[#05060B] font-black text-sm shrink-0 rotate-3">
+      <div className="w-9 h-9 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#E2FFCB] to-[#1A5C0A] shadow-[0_0_20px_rgba(91,232,23,0.5)] border border-white/40 text-[#030603] font-black text-sm shrink-0 rotate-3">
         1
       </div>
     );
@@ -161,7 +161,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ title, subtitle, data
       </div>
     );
     if (rank === 3) return (
-      <div className="w-8 h-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#7FB2FF] to-[#1E4E8C] shadow-[0_0_14px_rgba(255,138,92,0.4)] border border-white/30 text-white font-black text-xs shrink-0 rotate-2">
+      <div className="w-8 h-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#7BEF3D] to-[#1A5C0A] shadow-[0_0_14px_rgba(255,138,92,0.4)] border border-white/30 text-white font-black text-xs shrink-0 rotate-2">
         3
       </div>
     );
@@ -178,7 +178,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ title, subtitle, data
       <div className={`
                  relative flex flex-col items-center justify-center p-4 sm:p-6 text-center rounded-[28px] overflow-hidden
                  bg-white/[0.04] backdrop-blur-2xl border border-white/10
-                 transition-all duration-500 hover:border-[#4D8DFF]/30 hover:bg-white/[0.05] hover:-translate-y-1 group
+                 transition-all duration-500 hover:border-[#5BE817]/30 hover:bg-white/[0.05] hover:-translate-y-1 group
                  ${isMain ? 'lg:mt-8 z-10 min-h-[210px] md:min-h-[300px]' : 'min-h-[210px] md:min-h-[280px]'}
                  ${className}
              `}
@@ -258,7 +258,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({ title, subtitle, data
             const rank = idx + 2;
             const pct = Math.max(4, Math.round(((entry.quantity || 0) / maxQ) * 100));
             return (
-              <div key={idx} className="relative rounded-2xl p-2.5 md:p-3 transition-all duration-300 group/row hover:bg-white/[0.05] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(77,141,255,0.35)] border border-transparent hover:border-[#4D8DFF]/25 animate-fade-in-up"
+              <div key={idx} className="relative rounded-2xl p-2.5 md:p-3 transition-all duration-300 group/row hover:bg-white/[0.05] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(91,232,23,0.35)] border border-transparent hover:border-[#5BE817]/25 animate-fade-in-up"
                 style={{ animationDelay: `${Math.min(idx * 70, 420)}ms` }}>
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div className="shrink-0 flex justify-center">
@@ -315,7 +315,7 @@ export const HonorSection: React.FC<StatsSectionProps> = ({ lang, report }) => {
   };
 
   useEffect(() => {
-    const channelSlug = 'mdra9';
+    const channelSlug = 'ab2dy';
 
     // جلب معلومات القناة (المتابعين)
     kickFetch(`https://kick.com/api/v2/channels/${channelSlug}`).then(rawData => {
@@ -349,34 +349,34 @@ export const HonorSection: React.FC<StatsSectionProps> = ({ lang, report }) => {
         {/* --- KICK FORTRESS: followers + sub badges in 3D --- */}
         {channelInfo ? (
           <div className="relative [perspective:1200px]">
-            <div className="absolute -inset-2 rounded-[36px] bg-gradient-to-b from-[#4D8DFF]/15 via-transparent to-transparent blur-2xl pointer-events-none" aria-hidden="true" />
-            <div className="group card-sheen relative overflow-hidden rounded-[30px] border border-[#4D8DFF]/25 bg-[#05060B]/90 backdrop-blur-xl shadow-[0_30px_80px_-20px_rgba(77,141,255,0.3)] [transform-style:preserve-3d]">
-              <div aria-hidden="true" className="absolute -end-8 -bottom-12 opacity-[0.07] scale-[3.2] origin-bottom-right pointer-events-none text-[#4D8DFF]">
+            <div className="absolute -inset-2 rounded-[36px] bg-gradient-to-b from-[#5BE817]/15 via-transparent to-transparent blur-2xl pointer-events-none" aria-hidden="true" />
+            <div className="group card-sheen relative overflow-hidden rounded-[30px] border border-[#5BE817]/25 bg-[#030603]/90 backdrop-blur-xl shadow-[0_30px_80px_-20px_rgba(91,232,23,0.3)] [transform-style:preserve-3d]">
+              <div aria-hidden="true" className="absolute -end-8 -bottom-12 opacity-[0.07] scale-[3.2] origin-bottom-right pointer-events-none text-[#5BE817]">
                 <KickIcon className="w-24 h-24" />
               </div>
-              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-l from-transparent via-[#4D8DFF]/70 to-transparent" />
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-l from-transparent via-[#5BE817]/70 to-transparent" />
               <div className="relative p-5 sm:p-8 flex flex-col lg:flex-row items-center gap-6 lg:gap-10 [transform-style:preserve-3d]">
 
                 {/* 3D K emblem + live followers */}
                 <div className="flex items-center justify-center sm:justify-start gap-4 sm:gap-5 shrink-0 w-full sm:w-auto">
                   <div className="relative w-[72px] h-[72px] sm:w-24 sm:h-24 shrink-0 [transform:translateZ(36px)]">
-                    <KickIcon className="absolute inset-0 m-auto w-9 h-9 sm:w-12 sm:h-12 translate-x-[6px] translate-y-[7px] text-[#0b1b33]" aria-hidden="true" />
-                    <KickIcon className="absolute inset-0 m-auto w-9 h-9 sm:w-12 sm:h-12 translate-x-[3px] translate-y-[3px] text-[#2E5FA3]" aria-hidden="true" />
-                    <div className="absolute inset-0 rounded-[22px] sm:rounded-[24px] bg-gradient-to-b from-[#D6E9FF] via-[#9CC5FF] to-[#2E5FA3] border border-[#D6E9FF]/60 shadow-[0_0_44px_rgba(156,197,255,0.55),inset_0_2px_0_rgba(255,255,255,0.5)] flex items-center justify-center transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
+                    <KickIcon className="absolute inset-0 m-auto w-9 h-9 sm:w-12 sm:h-12 translate-x-[6px] translate-y-[7px] text-[#04110A]" aria-hidden="true" />
+                    <KickIcon className="absolute inset-0 m-auto w-9 h-9 sm:w-12 sm:h-12 translate-x-[3px] translate-y-[3px] text-[#1E6B0C]" aria-hidden="true" />
+                    <div className="absolute inset-0 rounded-[22px] sm:rounded-[24px] bg-gradient-to-b from-[#E2FFCB] via-[#A6FF5C] to-[#1E6B0C] border border-[#E2FFCB]/60 shadow-[0_0_44px_rgba(166,255,92,0.55),inset_0_2px_0_rgba(255,255,255,0.5)] flex items-center justify-center transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
                       <KickIcon className="w-9 h-9 sm:w-12 sm:h-12 text-black" />
                     </div>
-                    <span className="absolute -bottom-2 inset-x-6 h-3 rounded-full bg-[#9CC5FF]/50 blur-md" aria-hidden="true" />
+                    <span className="absolute -bottom-2 inset-x-6 h-3 rounded-full bg-[#A6FF5C]/50 blur-md" aria-hidden="true" />
                   </div>
                   <div className="min-w-0 text-center sm:text-start [transform:translateZ(18px)]">
-                    <p className="inline-flex items-center gap-1.5 text-[10px] font-black tracking-[0.25em] text-[#7FB2FF] uppercase">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4D8DFF] animate-pulse shadow-[0_0_8px_#4D8DFF]" />
+                    <p className="inline-flex items-center gap-1.5 text-[10px] font-black tracking-[0.25em] text-[#7BEF3D] uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5BE817] animate-pulse shadow-[0_0_8px_#5BE817]" />
                       {t.followers} • KICK
                     </p>
                     <p className="text-4xl sm:text-5xl font-black text-white tracking-tighter leading-none mt-1 drop-shadow-lg">
                       <KickCount value={channelInfo.followers_count} />
                     </p>
-                    <a href="https://kick.com/mdra9/subscribe" target="_blank" rel="noopener noreferrer"
-                      className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] font-black px-5 py-2.5 rounded-full border border-[#4D8DFF]/60 text-[#7FB2FF] hover:bg-[#4D8DFF] hover:text-white hover:shadow-[0_0_24px_rgba(77,141,255,0.6)] active:scale-95 transition-all duration-300">
+                    <a href="https://kick.com/ab2dy/subscribe" target="_blank" rel="noopener noreferrer"
+                      className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] font-black px-5 py-2.5 rounded-full border border-[#5BE817]/60 text-[#7BEF3D] hover:bg-[#5BE817] hover:text-white hover:shadow-[0_0_24px_rgba(91,232,23,0.6)] active:scale-95 transition-all duration-300">
                       {lang === 'en' ? 'SUBSCRIBE NOW' : 'اشترك الآن'}
                       <svg className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </a>
@@ -389,12 +389,12 @@ export const HonorSection: React.FC<StatsSectionProps> = ({ lang, report }) => {
                     <>
                       <div className="flex items-center justify-center lg:justify-end gap-2.5 mb-4">
                         <span className="text-[10px] text-white/40 font-black uppercase tracking-[0.25em]">{t.subBadges}</span>
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#4D8DFF]/15 border border-[#4D8DFF]/40 text-[#7FB2FF]" dir="ltr">{channelInfo.subscriber_badges.length}</span>
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#5BE817]/15 border border-[#5BE817]/40 text-[#7BEF3D]" dir="ltr">{channelInfo.subscriber_badges.length}</span>
                       </div>
                       <div className="flex flex-wrap justify-center lg:justify-end gap-2 sm:gap-3.5">
                         {[...channelInfo.subscriber_badges].sort((a, b) => a.months - b.months).map((badge, i) => (
                           <div key={badge.id} className="flex flex-col items-center basis-[calc(25%-6px)] sm:basis-auto opacity-0 animate-fade-in-up" style={{ animationDelay: `${i * 90}ms` }}>
-                            <div className="group/badge relative w-14 h-14 sm:w-[68px] sm:h-[68px] rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 p-2 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4D8DFF]/60 hover:shadow-[0_14px_30px_-8px_rgba(77,141,255,0.55)]">
+                            <div className="group/badge relative w-14 h-14 sm:w-[68px] sm:h-[68px] rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 p-2 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#5BE817]/60 hover:shadow-[0_14px_30px_-8px_rgba(91,232,23,0.55)]">
                               <div className="absolute inset-x-3 top-0 h-px bg-gradient-to-l from-transparent via-white/40 to-transparent" />
                               <img
                                 src={badge.badge_image.src}
@@ -425,21 +425,21 @@ export const HonorSection: React.FC<StatsSectionProps> = ({ lang, report }) => {
 
           {/* Modern Header */}
           <div className="relative rounded-[28px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl overflow-hidden">
-            <div className="absolute -top-20 start-1/3 w-96 h-96 rounded-full bg-[#4D8DFF]/[0.08] blur-[100px] pointer-events-none" aria-hidden="true" />
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-[#4D8DFF]/60 to-transparent" aria-hidden="true" />
+            <div className="absolute -top-20 start-1/3 w-96 h-96 rounded-full bg-[#5BE817]/[0.08] blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-[#5BE817]/60 to-transparent" aria-hidden="true" />
             <div className="relative p-5 sm:p-6 lg:p-7 flex flex-col md:flex-row items-center gap-4 lg:gap-5 text-center md:text-start">
-              <span className="relative w-14 h-14 lg:w-16 lg:h-16 rounded-[20px] flex items-center justify-center shrink-0 border border-[#4D8DFF]/50 bg-[#05060B] transition-transform duration-500 hover:scale-110 hover:-rotate-6"
-                style={{ boxShadow: '0 16px 40px -12px rgba(77,141,255,0.65), inset 0 1px 0 rgba(167,243,208,0.25), 0 0 28px -6px rgba(77,141,255,0.5)' }}>
+              <span className="relative w-14 h-14 lg:w-16 lg:h-16 rounded-[20px] flex items-center justify-center shrink-0 border border-[#5BE817]/50 bg-[#030603] transition-transform duration-500 hover:scale-110 hover:-rotate-6"
+                style={{ boxShadow: '0 16px 40px -12px rgba(91,232,23,0.65), inset 0 1px 0 rgba(167,243,148,0.25), 0 0 28px -6px rgba(91,232,23,0.5)' }}>
                 <CrownIcon className="w-7 h-7 lg:w-8 lg:h-8" />
               </span>
               <div className="min-w-0 flex-1">
                 <h2 className={`text-[22px] sm:text-[26px] lg:text-4xl font-black text-white tracking-tight leading-tight lg:leading-none ${lang === 'ar' ? 'font-arabic' : ''}`}>
                   {t.topGifters}
                 </h2>
-                <p className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.28em] bg-gradient-to-r from-[#D6E9FF] to-[#1E4E8C] bg-clip-text text-transparent mt-1.5 lg:mt-2" dir="ltr">HALL OF GENEROSITY • LIVE</p>
+                <p className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.28em] bg-gradient-to-r from-[#E2FFCB] to-[#1A5C0A] bg-clip-text text-transparent mt-1.5 lg:mt-2" dir="ltr">HALL OF GENEROSITY • LIVE</p>
               </div>
-              <span className="shrink-0 inline-flex items-center justify-center gap-2 text-[10px] font-black px-3.5 py-2 rounded-full bg-[#4D8DFF]/10 border border-[#4D8DFF]/30 text-[#7FB2FF] self-center md:self-auto">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4D8DFF] animate-pulse shadow-[0_0_10px_#4D8DFF]" />
+              <span className="shrink-0 inline-flex items-center justify-center gap-2 text-[10px] font-black px-3.5 py-2 rounded-full bg-[#5BE817]/10 border border-[#5BE817]/30 text-[#7BEF3D] self-center md:self-auto">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5BE817] animate-pulse shadow-[0_0_10px_#5BE817]" />
                 {lang === 'en' ? 'UPDATED LIVE' : 'يتحدث مباشرة'}
               </span>
             </div>
@@ -525,7 +525,7 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
   };
 
   useEffect(() => {
-    const channelSlug = 'mdra9';
+    const channelSlug = 'ab2dy';
 
     // جلب اللقطات (آخر اللقطات مع منطق استخراج قوي لضمان ظهور البيانات)
     kickFetch(`https://kick.com/api/v2/channels/${channelSlug}/clips`).then(rawData => {
@@ -558,13 +558,13 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
 
           {/* CLIPS — modern reel */}
           <div className="group/sec relative rounded-[28px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl overflow-hidden transition-colors duration-500 hover:border-white/20">
-            <div className="absolute -top-24 end-0 w-80 h-80 rounded-full bg-[#9CC5FF]/[0.10] blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -top-24 end-0 w-80 h-80 rounded-full bg-[#A6FF5C]/[0.10] blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-white/40 to-transparent" aria-hidden="true" />
             <div className="relative p-4 sm:p-5">
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
-                <div className="absolute -inset-1.5 bg-[#4D8DFF]/40 blur-xl opacity-40 rounded-2xl" aria-hidden="true" />
-                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-b from-[#D6E9FF] via-[#4D8DFF] to-[#0B1B33] border border-[#D6E9FF]/40 shadow-[0_12px_32px_-8px_rgba(77,141,255,0.6)] flex items-center justify-center transition-transform duration-500 hover:rotate-6 hover:scale-110">
+                <div className="absolute -inset-1.5 bg-[#5BE817]/40 blur-xl opacity-40 rounded-2xl" aria-hidden="true" />
+                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-b from-[#E2FFCB] via-[#5BE817] to-[#04110A] border border-[#E2FFCB]/40 shadow-[0_12px_32px_-8px_rgba(91,232,23,0.6)] flex items-center justify-center transition-transform duration-500 hover:rotate-6 hover:scale-110">
                   <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                 </div>
               </div>
@@ -572,8 +572,8 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                 <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-none">{t.recentClips}</h3>
                 <p className="text-[10px] font-black text-white/35 uppercase tracking-[0.24em] mt-1.5" dir="ltr">{clips?.length || 0} CLIPS • FRESH</p>
               </div>
-              <a href="https://kick.com/mdra9/clips" target="_blank" rel="noreferrer"
-                className="shrink-0 inline-flex items-center gap-1.5 text-[11px] font-black px-4 py-2.5 rounded-2xl bg-white/[0.05] border border-white/10 text-white/60 hover:text-[#05060B] hover:bg-[#7FB2FF] hover:border-[#7FB2FF] hover:shadow-[0_0_24px_rgba(77,141,255,0.5)] active:scale-95 transition-all duration-300">
+              <a href="https://kick.com/ab2dy/clips" target="_blank" rel="noreferrer"
+                className="shrink-0 inline-flex items-center gap-1.5 text-[11px] font-black px-4 py-2.5 rounded-2xl bg-white/[0.05] border border-white/10 text-white/60 hover:text-[#030603] hover:bg-[#7BEF3D] hover:border-[#7BEF3D] hover:shadow-[0_0_24px_rgba(91,232,23,0.5)] active:scale-95 transition-all duration-300">
                 {lang === 'en' ? 'VIEW ALL' : 'عرض الكل'}
                 <svg className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
@@ -586,11 +586,11 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                   {clips.map((clip, i) => (
                     <div key={clip.id} className="animate-fade-in-up" style={{ animationDelay: `${i * 90}ms` }}>
                       <a
-                        href={`https://kick.com/mdra9/clips/${clip.id}`}
+                        href={`https://kick.com/ab2dy/clips/${clip.id}`}
                         target="_blank"
                         rel="noreferrer"
                         onClick={onPlayClip ? (e) => { e.preventDefault(); onPlayClip(clip); } : undefined}
-                        className="group relative block aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black transition-all duration-500 hover:border-[#4D8DFF]/60 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-16px_rgba(77,141,255,0.45)]"
+                        className="group relative block aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black transition-all duration-500 hover:border-[#5BE817]/60 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-16px_rgba(91,232,23,0.45)]"
                       >
                         <img
                           src={clip.thumbnail_url || FALLBACK_IMAGE}
@@ -603,7 +603,7 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
                         <span className="absolute top-2 start-2 min-w-[26px] h-[26px] px-2 rounded-xl bg-black/70 backdrop-blur border border-white/20 text-white text-[10px] font-black flex items-center justify-center" dir="ltr">#{i + 1}</span>
-                        <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[9px] font-black px-2 py-1 rounded-lg bg-[#4D8DFF] text-[#05060B] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                        <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[9px] font-black px-2 py-1 rounded-lg bg-[#5BE817] text-[#030603] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                           <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                           PLAY
                         </span>
@@ -618,7 +618,7 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                               <span dir="ltr">{formatNumber(clip.view_count)}</span>
                             </span>
                             {(clip.creator as any)?.username && (
-                              <span className="text-[9px] sm:text-[10px] text-[#7FB2FF] font-bold truncate" dir="auto">@{(clip.creator as any).username}</span>
+                              <span className="text-[9px] sm:text-[10px] text-[#7BEF3D] font-bold truncate" dir="auto">@{(clip.creator as any).username}</span>
                             )}
                           </div>
                         </div>
@@ -640,13 +640,13 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
 
           {/* VIDEOS — modern archive */}
           <div className="group/sec relative rounded-[28px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl overflow-hidden transition-colors duration-500 hover:border-white/20">
-            <div className="absolute -top-24 start-0 w-80 h-80 rounded-full bg-[#6FA5FF]/[0.08] blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -top-24 start-0 w-80 h-80 rounded-full bg-[#8FFF5C]/[0.08] blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-white/40 to-transparent" aria-hidden="true" />
             <div className="relative p-4 sm:p-5">
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
-                <div className="absolute -inset-1.5 bg-[#6FA5FF]/30 blur-xl opacity-40 rounded-2xl" aria-hidden="true" />
-                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-b from-[#D6E9FF] via-[#9CC5FF] to-[#0B1B33] border border-white/25 shadow-[0_12px_32px_-8px_rgba(77,141,255,0.55)] flex items-center justify-center transition-transform duration-500 hover:rotate-6 hover:scale-110">
+                <div className="absolute -inset-1.5 bg-[#8FFF5C]/30 blur-xl opacity-40 rounded-2xl" aria-hidden="true" />
+                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-b from-[#E2FFCB] via-[#A6FF5C] to-[#04110A] border border-white/25 shadow-[0_12px_32px_-8px_rgba(91,232,23,0.55)] flex items-center justify-center transition-transform duration-500 hover:rotate-6 hover:scale-110">
                   <svg className="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
               </div>
@@ -654,8 +654,8 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                 <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-none">{t.recentVods}</h3>
                 <p className="text-[10px] font-black text-white/35 uppercase tracking-[0.24em] mt-1.5" dir="ltr">{videos?.length || 0} VODS • ARCHIVE</p>
               </div>
-              <a href="https://kick.com/mdra9/videos" target="_blank" rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-1.5 text-[11px] font-black px-4 py-2.5 rounded-2xl bg-white/[0.05] border border-white/10 text-white/60 hover:text-black hover:bg-[#D6E9FF] hover:border-[#D6E9FF] hover:shadow-[0_0_24px_rgba(156,197,255,0.5)] active:scale-95 transition-all duration-300">
+              <a href="https://kick.com/ab2dy/videos" target="_blank" rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center gap-1.5 text-[11px] font-black px-4 py-2.5 rounded-2xl bg-white/[0.05] border border-white/10 text-white/60 hover:text-black hover:bg-[#E2FFCB] hover:border-[#E2FFCB] hover:shadow-[0_0_24px_rgba(166,255,92,0.5)] active:scale-95 transition-all duration-300">
                 {lang === 'en' ? 'VIEW ALL' : 'عرض الكل'}
                 <svg className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
@@ -672,11 +672,11 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                     return (
                       <div key={video.id} className="animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                         <a
-                          href={`https://kick.com/mdra9/videos/${videoUUID}`}
+                          href={`https://kick.com/ab2dy/videos/${videoUUID}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={onPlayVod ? (e) => { e.preventDefault(); onPlayVod(video); } : undefined}
-                          className="group flex gap-3 p-2.5 rounded-3xl bg-black/40 border border-white/[0.07] hover:border-[#D6E9FF]/50 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_20px_50px_-16px_rgba(156,197,255,0.35)] active:scale-[0.99] transition-all duration-300 cursor-pointer"
+                          className="group flex gap-3 p-2.5 rounded-3xl bg-black/40 border border-white/[0.07] hover:border-[#E2FFCB]/50 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_20px_50px_-16px_rgba(166,255,92,0.35)] active:scale-[0.99] transition-all duration-300 cursor-pointer"
                         >
                           <div className="relative w-32 sm:w-44 aspect-video rounded-2xl overflow-hidden shrink-0 bg-black border border-white/10 group-hover:border-white/25 transition-colors duration-300">
                             <img
@@ -695,10 +695,10 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                               </div>
                             </div>
                             {dur > 0 && <span className="absolute bottom-1.5 end-1.5 text-[9px] font-black px-2 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/20 text-white" dir="ltr">{fmtDur(dur)}</span>}
-                            <span className="absolute top-1.5 start-1.5 text-[8px] font-black px-2 py-1 rounded-lg bg-[#D6E9FF] text-black" dir="ltr">VOD</span>
+                            <span className="absolute top-1.5 start-1.5 text-[8px] font-black px-2 py-1 rounded-lg bg-[#E2FFCB] text-black" dir="ltr">VOD</span>
                           </div>
                           <div className="min-w-0 flex-1 flex flex-col justify-center gap-1.5 py-1">
-                            <h4 className="text-[13px] sm:text-sm font-black text-white leading-snug line-clamp-2 group-hover:text-[#D6E9FF] transition-colors">
+                            <h4 className="text-[13px] sm:text-sm font-black text-white leading-snug line-clamp-2 group-hover:text-[#E2FFCB] transition-colors">
                               {video.session_title || video.title || 'Past Stream'}
                             </h4>
                             <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-white/45 font-bold">
@@ -709,7 +709,7 @@ export const ArchiveSection: React.FC<StatsSectionProps> = ({ lang, onPlayVod, o
                               </span>
                             </div>
                           </div>
-                          <span className="self-center shrink-0 w-10 h-10 rounded-2xl bg-white/[0.05] border border-white/10 hidden sm:flex items-center justify-center text-white/40 group-hover:text-black group-hover:bg-[#D6E9FF] group-hover:border-[#D6E9FF] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all duration-300">
+                          <span className="self-center shrink-0 w-10 h-10 rounded-2xl bg-white/[0.05] border border-white/10 hidden sm:flex items-center justify-center text-white/40 group-hover:text-black group-hover:bg-[#E2FFCB] group-hover:border-[#E2FFCB] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all duration-300">
                             <svg className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                           </span>
                         </a>
