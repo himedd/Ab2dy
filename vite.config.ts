@@ -1,9 +1,20 @@
-﻿import path from 'path';
+﻿import fs from 'fs';
+import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// دومين المعاينة داخل index.html و sitemap.xml. يُستبدل وقت البناء بالدومين
+// المنشور فعلياً: لو بقي مكتوب يدوياً ودُار المشروع على دومين آخر، تُطلب
+// og:image من عنوان لا يملك الصورة وترجع 404 فتظهر البانر مكسورة في ديسكورد.
+const PLACEHOLDER_ORIGIN = 'https://ab2dy.vercel.app';
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+  const deployHost =
+    env.VITE_SITE_URL || process.env.VERCEL_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || '';
+  const siteOrigin = deployHost
+    ? (/^https?:\/\//.test(deployHost) ? deployHost.replace(/\/+$/, '') : `https://${deployHost.replace(/\/+$/, '')}`)
+    : PLACEHOLDER_ORIGIN;
   return {
     server: {
       port: 3000,
@@ -11,6 +22,23 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
+      {
+        name: 'absolute-meta-origin',
+        transformIndexHtml(html: string) {
+          return html.split(PLACEHOLDER_ORIGIN).join(siteOrigin);
+        },
+        closeBundle() {
+          for (const file of ['sitemap.xml', 'robots.txt']) {
+            const p = path.resolve(__dirname, 'dist', file);
+            try {
+              if (fs.existsSync(p)) {
+                const xml = fs.readFileSync(p, 'utf8');
+                if (xml.includes(PLACEHOLDER_ORIGIN)) fs.writeFileSync(p, xml.split(PLACEHOLDER_ORIGIN).join(siteOrigin));
+              }
+            } catch {}
+          }
+        },
+      },
       {
         name: 'local-api-proxy',
         configureServer(server) {

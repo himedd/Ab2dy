@@ -218,19 +218,30 @@ vercel --prod
 | --- | --- | --- | --- |
 | `GROQ_API_KEY_1` / `_2` / `_3` | only for the AI chat | `api/groq.ts` | Key rotation for `/api/groq`; the browser never sees a key |
 | `VITE_GROQ_API_KEYS` | local dev only | `components/AIChat.tsx` | Direct GROQ fallback when there is no serverless backend |
+| `VITE_SITE_URL` | optional | `vite.config.ts` | Pin the absolute meta origin (custom domain). Empty on Vercel → the deployment's own `VERCEL_URL` is used |
 
 No other secrets are needed — Kick, Discord, Botrix and creators.sa counters are public
 endpoints read through the hardened `/api/kick` edge proxy.
 
-### After the first deploy
-Replace the `ab2dy.vercel.app` placeholder with your real domain in these four places,
-otherwise canonical / Open Graph / sitemap will point at the wrong host:
+### The domain in the share-preview tags
 
-- `index.html` → `<link rel="canonical">`, the three `hreflang` links, every `og:*` and `twitter:*` URL, and the `@id`/`url` fields in the JSON-LD block
-- `public/robots.txt` → `Sitemap:` line
-- `public/sitemap.xml` → every `<loc>` and `<image:loc>`
+`index.html`, `public/robots.txt` and `public/sitemap.xml` are written with the
+`https://ab2dy.vercel.app` placeholder and the **build rewrites it to the real origin**
+(`VITE_SITE_URL` → `VERCEL_URL` → `VERCEL_PROJECT_PRODUCTION_URL` → placeholder), so the
+canonical / `og:*` / `twitter:*` / JSON-LD URLs always match the host actually serving the
+page. Do not hand-edit them per deployment.
 
-Then add the domain under Vercel → Settings → Domains.
+This matters because `og:image` must be an absolute URL: if it points at a host that does
+not serve `/og-ab2dy.png`, Discord, X and Telegram render a broken-image card (the title
+and description still show, which makes it look like the tags are missing).
+
+```bash
+curl -sI "https://<your-domain>/og-ab2dy.png" | grep -iE "HTTP|content-type|content-length"
+# expect: 200, image/png, ~494 KB (1200×630)
+```
+
+If a card still shows the old text, the crawler cached it — re-share from a different
+chat, or for Discord delete and re-post the message.
 
 ### Verifying the deploy
 

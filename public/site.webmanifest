@@ -13,7 +13,7 @@
   "display": "standalone",
   "categories": ["entertainment", "live", "gaming"],
   "icons": [
-    { "src": "/ab2dy-logo.webp", "sizes": "192x192", "type": "image/webp", "purpose": "any" },
-    { "src": "/ab2dy-logo.webp", "sizes": "512x512", "type": "image/webp", "purpose": "any maskable" }
+    { "src": "/ab2dy-logo.webp", "sizes": "350x350", "type": "image/webp", "purpose": "any" },
+    { "src": "/ab2dy-icon.png", "sizes": "350x350", "type": "image/png", "purpose": "any" }
   ]
 }
