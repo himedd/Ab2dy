@@ -232,6 +232,21 @@ otherwise canonical / Open Graph / sitemap will point at the wrong host:
 
 Then add the domain under Vercel → Settings → Domains.
 
+### Verifying the deploy
+
+The live counters, the supporters board and the VOD player all depend on the edge
+functions. A static-only deployment (no `api/`, or an Output Directory override) renders
+those sections empty while `npm run dev` looks perfect — the Vite dev server proxies
+`/api/*` locally, so the difference is invisible until you deploy. Check it in one command:
+
+```bash
+curl -s "https://<your-domain>/api/kick?endpoint=https%3A%2F%2Fapi.creators.sa%2Fv1%2Fkebab%2Funified%2Fab2dy%2Fleaderboard%3Flimit%3D5%26duration%3Dlifetime"
+```
+
+A JSON array of donors means the functions are live. A `404` / `NOT_FOUND` means Vercel
+imported a build without `api/` — re-import `himedd/Ab2dy` and make sure Project Settings
+→ Output Directory is `dist` (leave it unset so `vercel.json` wins).
+
 ### GitHub Pages (alternative)
 ```bash
 npm run deploy         # builds and publishes dist/ to the gh-pages branch
@@ -253,8 +268,11 @@ Edit `App.tsx` — `createSocialLink()` handles:
 - Snapchat, WhatsApp, Discord
 
 ### Edge proxy allowlist
-`api/kick.ts` only forwards `https://` requests to `kick.com`, `discord.com` and
-`botrix.live`. Add a host there if you wire a new public API through the proxy.
+`api/kick.ts` only forwards `https://` requests to `kick.com`, `discord.com`, `botrix.live`
+and `api.creators.sa`. The creators.sa entry is not optional — the supporters leaderboard
+has no other route, because that API sends no `Access-Control-Allow-Origin` header, so a
+browser cannot fetch it directly. Add a host there if you wire a new public API through
+the proxy.
 
 ### Botrix Leaderboard
 The endpoint is configured in `AIChat.tsx` and `components/BotrixLeaderboard.tsx`:

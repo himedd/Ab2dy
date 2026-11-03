@@ -5,7 +5,17 @@ export const config = {
 
 // البروكسي عام، لذا يُسمح فقط بنطاقات البيانات التي يستهلكها الموقع.
 // بدون هذا القيد يتحول إلى مفتاح SSRF يقرأ أي عنوان يمرره أي زائر.
-const ALLOWED_HOSTS = ['kick.com', 'www.kick.com', 'botrix.live', 'discord.com', 'www.discord.com'];
+// api.creators.sa ضروري: لوحة أبطال الدعم لا تعمل بدون بروكسي لأن الخادم
+// لا يرسل Access-Control-Allow-Origin، فيطلب المتصفح يُحجب بـCORS.
+const ALLOWED_HOSTS = [
+  'kick.com',
+  'www.kick.com',
+  'botrix.live',
+  'discord.com',
+  'www.discord.com',
+  'api.creators.sa',
+  'creators.sa',
+];
 
 const json = (body: unknown, status: number, headers: Record<string, string> = {}) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', ...headers } });
